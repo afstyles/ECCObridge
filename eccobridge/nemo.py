@@ -131,7 +131,7 @@ def resample_nemo( nemo_field, ecco_field, ds_nemo_grid, ds_ecco_grid, resample_
 
     # Stack ECCO field as well if regridding ECCO data onto NEMO grid
     if nemo2ecco == False: 
-        ecco_field_stack = ecco_field.stack(xy=ecco_xydims, nonxy=ecco_nonxydims).chunk({'xy':-1, 'nonxy':1})
+        ecco_field_stack = ecco_field.stack(xy=ecco_xydims, nonxy=ecco_nonxydims).chunk({'xy':-1})
 
     # Define the regular NEMO grid for pyresample
     nemo_grid = pr.geometry.GridDefinition( nemo_lon.values , nemo_lat.values )
